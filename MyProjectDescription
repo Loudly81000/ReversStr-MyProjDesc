@@ -1,0 +1,47 @@
+作品大綱:
+作品名稱:BBS
+
+介面:
+1.用戶驗證系統介面
+  使用者輸入username/password登入
+  下方有"沒有帳戶嗎?請點擊這裡申請"超連結
+  直接跳轉到申請帳戶頁面
+2.申請帳戶頁面
+  讓user在表單填入username/password/email/性別
+  填好轉到controller的servlet後
+  username沒有衝突->建立用戶成功,點擊超連結回到登入頁面
+  username與既存username有衝突->建立用戶失敗,點擊超連結回到申請帳戶頁面
+3.BBS
+  參考日本2ch電子布告欄
+  介面分為:
+  a.左邊索引各個版(娛樂/體育/電影/動漫...etc)
+  b.右邊為各個版的各文章內容
+    最下方會有分頁可以讓User切換頁面
+    剛登入時會有一個欄位可以讓User直接輸入文章Title名,
+    利用資料庫搜尋的LIKE關鍵字找相關名稱的文章
+    發文章的格式為:
+    顯示姓名+email,user無法更改
+    再下面會有供發文的地方
+    確定發文後會將文章內容以BLOB資料型式存到資料庫
+    
+DAO層:
+1.sqlHelper類別
+  database.properties(用來存跟資料庫連結的資訊ex:帳號密碼)
+  static{內容是用來取得跟資料庫連結的帳號密碼}
+  executeUpdate method(用來新增or刪除資料用)
+  executeQuery method(用來搜尋資料用)
+  getConnection method(用來取得連結)
+  close method(用來關閉資源)
+  
+Model層
+1.UserService類別
+  裡面有各種方法:
+  新增用戶
+  
+  
+    
+
+
+
+  
+  
