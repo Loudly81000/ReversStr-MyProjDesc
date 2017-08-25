@@ -8,13 +8,14 @@
   直接跳轉到申請帳戶頁面
 2.申請帳戶頁面
   讓user在表單填入username/password/email/性別
-  填好轉到controller的servlet後
+  填好轉到controller的servlet
+  使用userservice裡面的方法與資料庫進行驗證
   username沒有衝突->建立用戶成功,點擊超連結回到登入頁面
   username與既存username有衝突->建立用戶失敗,點擊超連結回到申請帳戶頁面
 3.BBS
   參考日本2ch電子布告欄
   介面分為:
-  a.左邊索引各個版(娛樂/體育/電影/動漫...etc)
+  a.左邊索引各個版(娛樂/體育/電影/動漫...etc)(索引有餘力再做)
   b.右邊為各個版的各文章內容
     最下方會有分頁號可以讓User切換頁面
     剛登入時會有一個欄位可以讓User直接輸入文章Title名,
@@ -44,8 +45,11 @@ Model層
   P.S 每個User只有一個欄位,但一個User可能發好幾個文章,該怎麼辦?
   
 Controller
-1.只放一個servlet檔案
-  負責接收各個檔案傳遞過來的參數並根據參數轉發到其他檔案
+1.UserClServlet
+  負責處理與User資料有關的Servlet
+  接收參數並轉到合適的JSP頁面
+2.LoginClServlet
+  登入時User的參數會傳到這裡進行登入驗證
   
   
     
